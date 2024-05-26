@@ -7,6 +7,7 @@ def load_data(file_path):
     return pd.read_csv(file_path)
 
 def engineer_features(df):
+    df['date'] = pd.to_datetime(df['date'])
     # Example feature engineering
     df['year'] = df['date'].dt.year
     df['month'] = df['date'].dt.month
@@ -31,7 +32,7 @@ def save_engineered_data(df, file_path):
 
 def main():
     # Load cleaned data
-    clean_data_path = '../data/processed/cleaned_data.csv'
+    clean_data_path = './data/processed/cleaned_data.csv'
     df = load_data(clean_data_path)
     
     # Engineer features
@@ -41,7 +42,7 @@ def main():
     df_normalized = normalize_features(df_features)
     
     # Save engineered data
-    engineered_data_path = '../data/processed/engineered_data.csv'
+    engineered_data_path = './data/processed/engineered_data.csv'
     save_engineered_data(df_normalized, engineered_data_path)
 
 if __name__ == "__main__":

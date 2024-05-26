@@ -20,14 +20,14 @@ def save_clean_data(df, file_path):
 
 def main():
     # Load raw data
-    raw_data_path = '../data/raw/train.csv'
+    raw_data_path = './data/raw/train.csv'
     df = load_data(raw_data_path)
     
     # Clean data
     df_clean = clean_data(df)
     
     # Save cleaned data
-    clean_data_path = '../data/processed/cleaned_data.csv'
+    clean_data_path = './data/processed/cleaned_data.csv'
     save_clean_data(df_clean, clean_data_path)
 
 if __name__ == "__main__":
