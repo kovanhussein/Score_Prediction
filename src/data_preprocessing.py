@@ -4,15 +4,16 @@ import pandas as pd
 import numpy as np
 
 def load_data(file_path):
-    return pd.read_csv(file_path)
+    df = pd.read_csv(file_path)
+    df['date'] = pd.to_datetime(df['date'])  # Ensure date column is in datetime format
+    return df
 
 def clean_data(df):
     # Handle missing values
     df = df.dropna()
 
     # Correct data types
-    df['date'] = pd.to_datetime(df['date'])
-    
+    # Already handled date type conversion in load_data
     return df
 
 def save_clean_data(df, file_path):
